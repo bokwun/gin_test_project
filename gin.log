@@ -1,0 +1,68 @@
+
+
+[31m2019/09/24 23:29:06 [Recovery] 2019/09/24 - 23:29:06 panic recovered:
+GET /test?name= HTTP/1.1
+Host: 127.0.0.1:8080
+Accept: */*
+User-Agent: curl/7.61.1
+
+
+test panic!
+E:/go_demo/src/github.com/bokwun/gin_test_project/middleware_gin/main.go:19 (0x99afc7)
+	main.func1: panic("test panic!")
+E:/go_demo/pkg/mod/github.com/gin-gonic/gin@v1.4.0/context.go:124 (0x985a61)
+	(*Context).Next: c.handlers[c.index](c)
+E:/go_demo/pkg/mod/github.com/gin-gonic/gin@v1.4.0/recovery.go:83 (0x998f8a)
+	RecoveryWithWriter.func1: c.Next()
+E:/go_demo/pkg/mod/github.com/gin-gonic/gin@v1.4.0/context.go:124 (0x985a61)
+	(*Context).Next: c.handlers[c.index](c)
+E:/go_demo/pkg/mod/github.com/gin-gonic/gin@v1.4.0/logger.go:240 (0x998017)
+	LoggerWithConfig.func1: c.Next()
+E:/go_demo/pkg/mod/github.com/gin-gonic/gin@v1.4.0/context.go:124 (0x985a61)
+	(*Context).Next: c.handlers[c.index](c)
+E:/go_demo/pkg/mod/github.com/gin-gonic/gin@v1.4.0/gin.go:389 (0x98f458)
+	(*Engine).handleHTTPRequest: c.Next()
+E:/go_demo/pkg/mod/github.com/gin-gonic/gin@v1.4.0/gin.go:351 (0x98ec7a)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Go/src/net/http/server.go:2802 (0x6bae5a)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Go/src/net/http/server.go:1890 (0x6b662b)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Go/src/runtime/asm_amd64.s:1357 (0x45add0)
+	goexit: BYTE	$0x90	// NOP
+[0m
+[GIN] 2019/09/24 - 23:29:06 | 500 |     52.8727ms |       127.0.0.1 | GET      /test?name=
+
+
+[31m2019/09/24 23:29:18 [Recovery] 2019/09/24 - 23:29:18 panic recovered:
+GET /test?name=chen HTTP/1.1
+Host: 127.0.0.1:8080
+Accept: */*
+User-Agent: curl/7.61.1
+
+
+test panic!
+E:/go_demo/src/github.com/bokwun/gin_test_project/middleware_gin/main.go:19 (0x99afc7)
+	main.func1: panic("test panic!")
+E:/go_demo/pkg/mod/github.com/gin-gonic/gin@v1.4.0/context.go:124 (0x985a61)
+	(*Context).Next: c.handlers[c.index](c)
+E:/go_demo/pkg/mod/github.com/gin-gonic/gin@v1.4.0/recovery.go:83 (0x998f8a)
+	RecoveryWithWriter.func1: c.Next()
+E:/go_demo/pkg/mod/github.com/gin-gonic/gin@v1.4.0/context.go:124 (0x985a61)
+	(*Context).Next: c.handlers[c.index](c)
+E:/go_demo/pkg/mod/github.com/gin-gonic/gin@v1.4.0/logger.go:240 (0x998017)
+	LoggerWithConfig.func1: c.Next()
+E:/go_demo/pkg/mod/github.com/gin-gonic/gin@v1.4.0/context.go:124 (0x985a61)
+	(*Context).Next: c.handlers[c.index](c)
+E:/go_demo/pkg/mod/github.com/gin-gonic/gin@v1.4.0/gin.go:389 (0x98f458)
+	(*Engine).handleHTTPRequest: c.Next()
+E:/go_demo/pkg/mod/github.com/gin-gonic/gin@v1.4.0/gin.go:351 (0x98ec7a)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Go/src/net/http/server.go:2802 (0x6bae5a)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Go/src/net/http/server.go:1890 (0x6b662b)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Go/src/runtime/asm_amd64.s:1357 (0x45add0)
+	goexit: BYTE	$0x90	// NOP
+[0m
+[GIN] 2019/09/24 - 23:29:18 | 500 |      3.0208ms |       127.0.0.1 | GET      /test?name=chen

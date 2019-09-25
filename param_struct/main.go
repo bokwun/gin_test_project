@@ -1,0 +1,31 @@
+package main
+
+import (
+	"github.com/gin-gonic/gin"
+	"time"
+)
+
+//获取的请求参数的值绑定到一个结构体里面
+
+type Person struct {
+	Name string `form:"name"`
+	Address string `form:"address"`
+	Birthday time.Time `form:"birthday" time_format:"2006-01-02"`
+}
+
+func testing(c *gin.Context)  {
+	var person Person
+	err := c.ShouldBind(&person)
+	if err == nil {
+		c.String(200, "%v", person)
+	} else {
+		c.String(200, "bind error:%v", err)
+	}
+}
+
+func main() {
+	r := gin.Default()
+	r.GET("/testing", testing)
+	r.POST("/testing", testing)
+	r.Run(":8080")
+}
