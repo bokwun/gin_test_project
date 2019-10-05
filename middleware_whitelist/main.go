@@ -7,6 +7,7 @@ func IPAuthMiddleware() gin.HandlerFunc {
 		ipList := []string{
 			"127.0.0.1",
 			"127.0.0.2",
+			"127.0.0.3",
 		}
 		flag := false
 		clientIP := c.ClientIP()
